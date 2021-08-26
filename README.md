@@ -11,10 +11,10 @@ npm install redux react-redux
 
 * Store: A globalize State it takes the reducer function as argument.
 * Reducers: A function that takes two arguments the state and the action
-			and returns the new state it discribes how the action transfer
-			the current State to the next State.
+	and returns the new state it discribes how the action transfer
+	the current State to the next State.
 * Actions: It is a Javascript Object the has a type and payload, and it
-		   describes What you want to do.
+   	describes What you want to do.
 * Dispatch
 
 ## Creating the Store
@@ -26,7 +26,7 @@ import { Provider } from 'react-redux';
 
 ```
 
-# How to use Redux to manage the state in reactjs
+# How to use Redux to manage the state in React JS
 
 ## Create the Actions
 
@@ -36,15 +36,15 @@ Ex:
 
 ```javascript
 function increment() {
-	return {
-		type: 'INCREMENT'
-	}
+    return {
+	type: 'INCREMENT'
+    }
 }
 
 function decrement() {
-	return {
-		type: 'DECREMENT'
-	}
+    return {
+	type: 'DECREMENT'
+    }
 }
 
 ```
@@ -55,17 +55,17 @@ Ex:
 
 ```javascript
 function increment(amount) {
-	return {
-		type: 'INCREMENT',
-		payload: amount
-	}
+    return {
+	type: 'INCREMENT',
+	payload: amount
+    }
 }
 
 function decrement(amount) {
-	return {
-		type: 'DECREMENT',
-		payload: amount
-	}
+    return {
+	type: 'DECREMENT',
+	payload: amount
+    }
 }
 
 ```
@@ -78,14 +78,14 @@ Ex:
 
 ```javascript
 function counterReducer(state=0, action) {
-	switch(action.type) {
-		case 'INCREMENT':
-			return state + 1;
-		case 'DECREMENT':
-			return state - 1;
-		default:
-			return state;
-	}
+    switch(action.type) {
+	case 'INCREMENT':
+	    return state + 1;
+	case 'DECREMENT':
+	    return state - 1;
+	default:
+	    return state;
+    }
 }
 
 ```
@@ -114,8 +114,8 @@ import counterReducer from './path/to/counterReducer';
 import userStateReducer from './path/to/userStateReducer';
 
 const rootReducer = combineReducers({
-	counter: counterReducer,
-	userState: userStateReducer	
+    counter: counterReducer,
+    userState: userStateReducer	
 });
 
 const store = createStore(rootReducer);
@@ -150,24 +150,24 @@ import { increment, decrement } from '../../Actions/counterActions';
 
 
 function Counter() {
-	const counter = useSelector(state => state.counter)
-	const dispatch = useDispatch()
+    const counter = useSelector(state => state.counter)
+    const dispatch = useDispatch()
 
-	function handleIncrement(e) {
-		dispatch(increment())
-	}
+    function handleIncrement(e) {
+	dispatch(increment())
+    }
 
-	function handleDecrement(e) {
-		dispatch(decrement())
-	}
+    function handleDecrement(e) {
+	dispatch(decrement())
+    }
 
-	return (
-		<div>
-			<h1>Counter: {counter}</h1>
-			<button onClick={handleIncrement}>+</button>
-			<button onClick={handleDecrement}>-</button>
-		</div>
-	)
+    return (
+	<div>
+	    <h1>Counter: {counter}</h1>
+	    <button onClick={handleIncrement}>+</button>
+	    <button onClick={handleDecrement}>-</button>
+	</div>
+    )
 }
 
 
